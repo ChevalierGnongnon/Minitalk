@@ -6,14 +6,15 @@
 #    By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 22:40:58 by chhoflac          #+#    #+#              #
-#    Updated: 2024/02/04 22:41:00 by chhoflac         ###   ########.fr        #
+#    Updated: 2024/02/05 11:26:19 by chhoflac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PRINTF = printf/libftprintf.a  
 
-SRCS =  binaire.c \
-		main.c
+SRCS =  client.c \
+		server.c \
+		ft_atoi.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -38,7 +39,7 @@ $(SERVER) : $(OBJS) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o server
 
 $(NAME) : $(CLIENT) $(SERVER) 
-
+ 
 clean :
 	$(RM) $(OBJS)
 	$(MAKE) -C printf clean

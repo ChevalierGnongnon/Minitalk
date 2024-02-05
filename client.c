@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binaire.c                                          :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 19:53:44 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/02/04 23:26:01 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:31:33 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	send_char(char c, __pid_t pid)
 {
-	short i;
+	short	i;
 
 	i = 0;
 	while (i++ < 8)
 	{
-		if(c & 1)
+		if (c & 1)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
@@ -41,17 +41,10 @@ void	send_string(char *s, __pid_t pid)
 	send_char('\0', pid);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	if(argc == 3)
+	if (argc == 3)
 	{
-		send_string(argv[2],ft_atoi(argv[1]));
+		send_string(argv[2], ft_atoi(argv[1]));
 	}
 }
-
-
-
-/* 
- *	TODO: takes a string and for each char of the string transforms
- *	it into binary
- */
