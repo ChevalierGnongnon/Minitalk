@@ -6,21 +6,20 @@
 #    By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 22:40:58 by chhoflac          #+#    #+#              #
-#    Updated: 2024/02/05 11:26:19 by chhoflac         ###   ########.fr        #
+#    Updated: 2024/02/05 17:54:39 by chhoflac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PRINTF = printf/libftprintf.a  
 
-SRCS =  client.c \
-		server.c \
-		ft_atoi.c \
+SRCS =  ft_atoi.c \
+
 
 OBJS = $(SRCS:.c=.o)
 
 NAME = minitalk
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -fsanitize=address -g3
 
 CC = cc
 
@@ -33,10 +32,10 @@ CLIENT = client
 all : $(NAME)
 
 $(CLIENT) : $(OBJS) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o client
+	$(CC) $(CFLAGS) $(OBJS) client.c $(PRINTF) -o client
 
 $(SERVER) : $(OBJS) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(PRINTF) -o server
+	$(CC) $(CFLAGS) $(OBJS) server.c $(PRINTF) -o server
 
 $(NAME) : $(CLIENT) $(SERVER) 
  

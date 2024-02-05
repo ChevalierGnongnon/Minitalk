@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 19:53:44 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/02/05 11:31:33 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:02:07 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@ void	send_char(char c, __pid_t pid)
 
 	i = 0;
 	while (i++ < 8)
+	{
+		if (c & 1)
+			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
+		c >>= 1;
+		usleep(100);
+	}
+}
+
+void	send_size(unsigned long long c, __pid_t pid)
+{
+	short	i;
+
+	i = 0;
+	while (i++ < 64)
 	{
 		if (c & 1)
 			kill(pid, SIGUSR2);
@@ -45,6 +61,7 @@ int	main(int argc, char **argv)
 {
 	if (argc == 3)
 	{
+		send_size(ft_strlen(argv[2]), ft_atoi(argv[1]));
 		send_string(argv[2], ft_atoi(argv[1]));
 	}
 }

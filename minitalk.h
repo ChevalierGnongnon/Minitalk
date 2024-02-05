@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 22:40:46 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/02/05 11:29:31 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:07:33 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <signal.h>
 # include <stddef.h>
 # include <unistd.h>
+# include "printf/ft_printf.h"
+# include <stdlib.h>
 
 /*
  *	NOTE: SIGUSR1 FOR 0s AND SIGSUSR2 FOR 1s
