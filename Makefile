@@ -6,7 +6,7 @@
 #    By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 22:40:58 by chhoflac          #+#    #+#              #
-#    Updated: 2024/02/05 17:54:39 by chhoflac         ###   ########.fr        #
+#    Updated: 2024/02/06 10:01:08 by chhoflac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = minitalk
 
-CFLAGS = -Werror -Wextra -Wall -fsanitize=address -g3
+CFLAGS = -Werror -Wextra -Wall
 
 CC = cc
 
