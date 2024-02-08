@@ -6,21 +6,22 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 13:08:57 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/02/06 09:49:12 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/02/08 09:58:26 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 #include "printf/ft_printf.h"
 
-/*
- * Pour chaque signal decaller les bits
- */
-
 void	ft_append(char c, char *s, int *call)
 {
-	if (!s)
+	if (!s && c != '\0')
 		return ;
+	if (!s)
+	{
+		*call = 0;
+		return ;
+	}
 	if (c == '\0')
 	{
 		write(1, s, ft_strlen(s));
